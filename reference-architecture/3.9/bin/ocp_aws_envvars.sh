@@ -1,9 +1,9 @@
-export ocp_clusterid="examplerefarch"
-export ocp_region="us-east-1"
-export ocp_cidrblock="172.16.0.0/16"
-export ocp_cidrsubnets_routing=("172.16.0.0/24" "172.16.1.0/24" "172.16.2.0/24")
-export ocp_cidrsubnets=("172.16.16.0/20" "172.16.32.0/20" "172.16.48.0/20")
-export ocp_domain="examplerefarch.com"
+export ocp_clusterid="unicorn-poc-green2"
+export ocp_region="us-west-2"
+export ocp_cidrblock="10.20.0.0/16"
+export ocp_cidrsubnets_routing=("10.20.1.0/24" "10.20.2.0/24" "10.20.3.0/24")
+export ocp_cidrsubnets=("10.20.4.0/24" ""10.20.5.0/24" ""10.20.6.0/24")
+export ocp_domain="poc2.unicornsaddle.com"
 export ocp_ec2_bastion_type="t2.medium"
 export ocp_ec2_master_type="m5.2xlarge"
 export ocp_ec2_infra_type="m5.2xlarge"
