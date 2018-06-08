@@ -27,6 +27,6 @@
   when: ec2ami.changed
   failed_when: "'ami-' not in ec2ami.stdout"
 
-- name: 'Set fact: ec2ami'
+- name: Set fact ec2ami
   set_fact:
     ec2ami: "{{ ec2ami.stdout.split(',')[1] }}"

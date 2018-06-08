@@ -4,9 +4,10 @@ aws_cred_profile: "default"
 # password for ssh key - ~/.ssh/{{ clusterid }}.{{ dns_domain }}
 sshkey_password: 'abc123'
 
-clusterid: "refarch"
-dns_domain: "example.com"
-aws_region: "us-east-1"
+clusterid: "jay-poc"
+dns_domain: "geixunsapoc02.com"
+aws_region: "us-west-2"
+dhcp_domainname: "{{ 'ec2.internal' if aws_region == 'us-east-1' else aws_region + '.compute.internal' }}"
 
 vpc_cidr: "172.16.0.0/16"
 
