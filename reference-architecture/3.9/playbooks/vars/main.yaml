@@ -1,14 +1,14 @@
 ---
-aws_cred_profile: "default"
+aws_cred_profile: "la-int"
 
 # password for ssh key - ~/.ssh/{{ clusterid }}.{{ dns_domain }}
-sshkey_password: 'abc123'
+sshkey_password: '%3WsNVb07@^n7u4'
 
-clusterid: "refarch"
-dns_domain: "example.com"
+clusterid: "la-int"
+dns_domain: "geixunsapoc02.com"
 aws_region: "us-east-1"
 
-vpc_cidr: "172.16.0.0/16"
+vpc_cidr: "10.228.183.0/24"
 
 subnets_public_cidr:
   - 172.16.0.0/24
