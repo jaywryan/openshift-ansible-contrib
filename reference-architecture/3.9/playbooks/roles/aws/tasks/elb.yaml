@@ -1,5 +1,5 @@
 ---
-- name: Create ELB ( master public )
+- name: Create ELB ( captain public )
   ec2_elb_lb:
     cross_az_load_balancing: "yes"
     health_check:
@@ -15,7 +15,7 @@
         load_balancer_port: 443
         instance_protocol: tcp
         instance_port: 443
-    name: "{{ clusterid }}-public-master"
+    name: "{{ clusterid }}-public-captain"
     region: "{{ aws_region }}"
     scheme: internet-facing
     security_group_ids:
@@ -26,14 +26,14 @@
       - "{{ subnet_public.results.1.subnet.id }}"
       - "{{ subnet_public.results.2.subnet.id }}"
     tags:
-      name: "{{ clusterid }}-public-master"
+      name: "{{ clusterid }}-public-captain"
       Clusterid: "{{ clusterid }}"
     wait: true
   retries: 3
   delay: 3
-  register: elbextmaster
+  register: elbextcaptain
 
-- name: Create ELB ( master private )
+- name: Create ELB ( captain private )
   ec2_elb_lb:
     cross_az_load_balancing: "yes"
     health_check:
@@ -49,7 +49,7 @@
         load_balancer_port: 443
         instance_protocol: tcp
         instance_port: 443
-    name: "{{ clusterid }}-private-master"
+    name: "{{ clusterid }}-private-captain"
     region: "{{ aws_region }}"
     scheme: internal
     security_group_ids:
@@ -60,12 +60,12 @@
       - "{{ subnet_private.results.1.subnet.id }}"
       - "{{ subnet_private.results.2.subnet.id }}"
     tags:
-      name: "{{ clusterid }}-private-master"
+      name: "{{ clusterid }}-private-captain"
       Clusterid: "{{ clusterid }}"
     wait: true
   retries: 3
   delay: 3
-  register: elbintmaster
+  register: elbintcaptain
 
 - name: Create ELB ( infra public )
   ec2_elb_lb:

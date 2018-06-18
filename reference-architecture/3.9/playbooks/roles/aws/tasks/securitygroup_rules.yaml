@@ -43,10 +43,10 @@
         to_port: 9300
         cidr_ip: 0.0.0.0/0
 
-- name: "Create AWS SecurityGroups Rules (Master)"
+- name: "Create AWS SecurityGroups Rules (captain)"
   ec2_group:
-    name: "master"
-    description: "master"
+    name: "captain"
+    description: "captain"
     purge_rules: true
     purge_rules_egress: true
     region: "{{ aws_region }}"
@@ -59,7 +59,7 @@
       - proto: tcp
         from_port: 2379
         to_port: 2380
-        group_name: "master"
+        group_name: "captain"
       - proto: tcp
         from_port: 2379
         to_port: 2380
@@ -67,11 +67,11 @@
       - proto: tcp
         from_port: 24224
         to_port: 24224
-        group_name: "master"
+        group_name: "captain"
       - proto: udp
         from_port: 24224
         to_port: 24224
-        group_name: "master"
+        group_name: "captain"
 
 - name: "Create AWS SecurityGroups Rules (Node)"
   ec2_group:

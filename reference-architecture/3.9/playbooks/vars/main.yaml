@@ -21,7 +21,7 @@ subnets_private_cidr:
   - 10.228.183.176/28
 
 ec2_type_bastion: "t2.medium"
-ec2_type_master: "m5.2xlarge"
+ec2_type_captain: "m5.2xlarge"
 ec2_type_infra: "m5.2xlarge"
 ec2_type_node: "m5.2xlarge"
 ec2_type_cns: "m5.2xlarge"
