@@ -1,7 +1,7 @@
 ---
 - name: Create AWS SecurityGroup Rules (Bastion)
   ec2_group:
-    name: "Bastion"
+    name: "{{ clusterid }}-Bastion"
     description: "Bastion"
     purge_rules: false
     purge_rules_egress: false
@@ -19,7 +19,7 @@
 
 - name: "Create AWS SecurityGroups Rules (Infra)"
   ec2_group:
-    name: "infra"
+    name: "{{ clusterid }}-infra"
     description: "infra"
     purge_rules: true
     purge_rules_egress: true
@@ -45,7 +45,7 @@
 
 - name: "Create AWS SecurityGroups Rules (captain)"
   ec2_group:
-    name: "captain"
+    name: "{{ clusterid }}-captain"
     description: "captain"
     purge_rules: true
     purge_rules_egress: true
@@ -59,23 +59,23 @@
       - proto: tcp
         from_port: 2379
         to_port: 2380
-        group_name: "captain"
+        group_name: "{{ clusterid }}-captain"
       - proto: tcp
         from_port: 2379
         to_port: 2380
-        group_name: "node"
+        group_name: "{{ clusterid }}-node"
       - proto: tcp
         from_port: 24224
         to_port: 24224
-        group_name: "captain"
+        group_name: "{{ clusterid }}-captain"
       - proto: udp
         from_port: 24224
         to_port: 24224
-        group_name: "captain"
+        group_name: "{{ clusterid }}-captain"
 
 - name: "Create AWS SecurityGroups Rules (Node)"
   ec2_group:
-    name: "node"
+    name: "{{ clusterid }}-node"
     description: "node"
     purge_rules: true
     purge_rules_egress: true
@@ -89,32 +89,32 @@
       - proto: tcp
         from_port: 22
         to_port: 22
-        group_name: "Bastion"
+        group_name: "{{ clusterid }}-Bastion"
       - proto: tcp
         from_port: 53
         to_port: 53
-        group_name: "node"
+        group_name: "{{ clusterid }}-node"
       - proto: tcp
         from_port: 2049
         to_port: 2049
-        group_name: "node"
+        group_name: "{{ clusterid }}-node"
       - proto: tcp
         from_port: 8053
         to_port: 8053
-        group_name: "node"
+        group_name: "{{ clusterid }}-node"
       - proto: tcp
         from_port: 10250
         to_port: 10250
-        group_name: "node"
+        group_name: "{{ clusterid }}-node"
       - proto: udp
         from_port: 53
         to_port: 53
-        group_name: "node"
+        group_name: "{{ clusterid }}-node"
       - proto: udp
         from_port: 4789
         to_port: 4789
-        group_name: "node"
+        group_name: "{{ clusterid }}-node"
       - proto: udp
         from_port: 8053
         to_port: 8053
-        group_name: "node"
+        group_name: "{{ clusterid }}-node"

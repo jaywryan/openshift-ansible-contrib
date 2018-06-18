@@ -4,6 +4,9 @@
     region: "{{ aws_region }}"
     state: present
     vpc_id: "{{ vpc.vpc.id }}"
+    tags:
+      name: "igw-{{ clusterid }}"
+      Clusterid: "{{ clusterid }}"
   retries: 3
   delay: 3
   register: igw

@@ -35,13 +35,13 @@
     vpc_subnet_id: "{{ item.subnet }}"
     wait: yes
   with_items:
-    - name: "cns1"
+    - name: "cns1-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.0.subnet.id }}"
       type: "{{ ec2_type_cns }}"
-    - name: "cns2"
+    - name: "cns2-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.1.subnet.id }}"
       type: "{{ ec2_type_cns }}"
-    - name: "cns3"
+    - name: "cns3-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.2.subnet.id }}"
       type: "{{ ec2_type_cns }}"
   retries: 3
