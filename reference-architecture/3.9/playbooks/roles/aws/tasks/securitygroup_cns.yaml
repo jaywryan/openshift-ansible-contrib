@@ -1,7 +1,7 @@
 ---
 - name: "Create AWS SecurityGroup (CNS)"
   ec2_group:
-    name: "cns"
+    name: "{{ clusterid }}-cns"
     description: "cns"
     purge_rules: false
     purge_rules_egress: false
@@ -11,7 +11,7 @@
 
 - name: "Creating AWS SecurityGroup rules (CNS)"
   ec2_group:
-    name: "cns"
+    name: "{{ clusterid }}-cns"
     description: "cns"
     region: "{{ aws_region }}"
     vpc_id: "{{ vpc.vpc.id }}"
@@ -19,15 +19,15 @@
       - proto: tcp
         from_port: 111
         to_port: 111
-        group_name: "cns"
+        group_name: "{{ clusterid }}-cns"
       - proto: tcp
         from_port: 2222
         to_port: 2222
-        group_name: "cns"
+        group_name: "{{ clusterid }}-cns"
       - proto: tcp
         from_port: 3260
         to_port: 3260
-        group_name: "cns"
+        group_name: "{{ clusterid }}-cns"
       - proto: tcp
         from_port: 3260
         to_port: 3260
@@ -35,7 +35,7 @@
       - proto: tcp
         from_port: 24007
         to_port: 24008
-        group_name: "cns"
+        group_name: "{{ clusterid }}-cns"
       - proto: tcp
         from_port: 24007
         to_port: 24008
@@ -43,7 +43,7 @@
       - proto: tcp
         from_port: 24010
         to_port: 24010
-        group_name: "cns"
+        group_name: "{{ clusterid }}-cns"
       - proto: tcp
         from_port: 24010
         to_port: 24010
@@ -51,7 +51,7 @@
       - proto: tcp
         from_port: 49152
         to_port: 49664
-        group_name: "cns"
+        group_name: "{{ clusterid }}-cns"
       - proto: tcp
         from_port: 49152
         to_port: 49664
@@ -59,4 +59,4 @@
       - proto: udp
         from_port: 111
         to_port: 111
-        group_name: "cns"
+        group_name: "{{ clusterid }}-cns"

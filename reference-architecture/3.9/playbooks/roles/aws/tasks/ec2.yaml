@@ -3,7 +3,7 @@
   ec2:
     assign_public_ip: yes
     count_tag:
-      Name: "bastion"
+      Name: "bastion-{{ clusterid }}.{{ dns_domain }}"
     exact_count: 1
     group: [
       "Bastion"
@@ -11,7 +11,7 @@
     instance_type: "{{ ec2_type_bastion }}"
     image: "{{ ec2ami }}"
     instance_tags:
-      Name: "bastion"
+      Name: "bastion-{{ clusterid }}.{{ dns_domain }}"
       Clusterid: "{{ clusterid }}"
       ami: "{{ ec2ami }}"
       "kubernetes.io/cluster/{{ clusterid }}": "{{ clusterid }}"
@@ -28,7 +28,7 @@
     vpc_subnet_id: "{{ item.subnet }}"
     wait: yes
   with_items:
-    - name: "bastion"
+    - name: "bastion-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_public.results.0.subnet.id }}"
       type: "{{ ec2_type_bastion }}"
   retries: 3
@@ -92,13 +92,13 @@
     vpc_subnet_id: "{{ item.subnet }}"
     wait: yes
   with_items:
-    - name: "captain1"
+    - name: "captain1-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.0.subnet.id }}"
       type: "{{ ec2_type_captain }}"
-    - name: "captain2"
+    - name: "captain2-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.1.subnet.id }}"
       type: "{{ ec2_type_captain }}"
-    - name: "captain3"
+    - name: "captain3-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.2.subnet.id }}"
       type: "{{ ec2_type_captain }}"
   retries: 3
@@ -167,13 +167,13 @@
     vpc_subnet_id: "{{ item.subnet }}"
     wait: yes
   with_items:
-    - name: "infra1"
+    - name: "infra1-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.0.subnet.id }}"
       type: "{{ ec2_type_infra }}"
-    - name: "infra2"
+    - name: "infra2-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.1.subnet.id }}"
       type: "{{ ec2_type_infra }}"
-    - name: "infra3"
+    - name: "infra3-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.2.subnet.id }}"
       type: "{{ ec2_type_infra }}"
   retries: 3
@@ -235,13 +235,13 @@
     vpc_subnet_id: "{{ item.subnet }}"
     wait: yes
   with_items:
-    - name: "node1"
+    - name: "node1-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.0.subnet.id }}"
       type: "{{ ec2_type_node }}"
-    - name: "node2"
+    - name: "node2-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.1.subnet.id }}"
       type: "{{ ec2_type_node }}"
-    - name: "node3"
+    - name: "node3-{{ clusterid }}.{{ dns_domain }}"
       subnet: "{{ subnet_private.results.2.subnet.id }}"
       type: "{{ ec2_type_node }}"
   retries: 3

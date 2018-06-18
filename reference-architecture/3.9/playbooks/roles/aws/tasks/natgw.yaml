@@ -5,6 +5,9 @@
     state: present
     subnet_id: "{{ item }}"
     region: "{{ aws_region }}"
+    tags:
+      name: "nat-{{ clusterid }}"
+      Clusterid: "{{ clusterid }}"
     wait: yes
   register: natgw
   retries: 3

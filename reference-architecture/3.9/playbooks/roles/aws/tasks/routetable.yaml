@@ -10,7 +10,8 @@
       - dest: 0.0.0.0/0
         gateway_id: "{{ igw.gateway_id }}"
     tags:
-      Name: routing
+      name: "route-{{ clusterid }}"
+      Clusterid: "{{ clusterid }}"
     vpc_id: "{{ vpc.vpc.id }}"
   retries: 3
   delay: 3
@@ -24,7 +25,8 @@
       - dest: 0.0.0.0/0
         gateway_id: "{{ item.natgw }}"
     tags:
-      Name: "{{ item.az }}"
+      Name: "route-{{ clusterid }}-{{ item.az }}"
+      Clusterid: "{{ clusterid }}"
     vpc_id: "{{ vpc.vpc.id }}"
   retries: 3
   delay: 5
