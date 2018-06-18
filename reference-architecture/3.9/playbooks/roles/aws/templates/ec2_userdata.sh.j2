@@ -58,7 +58,7 @@ xvdc{%
   endif %}
 
   partition: auto{%
-  if 'master' in item.name %}
+  if 'captain' in item.name %}
 
 - label: etcd
   filesystem: xfs
@@ -80,7 +80,7 @@ xvdd{%
 
 mounts:
 - [ "LABEL=ocp_emptydir", "/var/lib/origin/openshift.local.volumes", xfs, "defaults,gquota" ]{%
-  if 'master' in item.name %}
+  if 'captain' in item.name %}
 
 - [ "LABEL=etcd", "/var/lib/etcd", xfs, "defaults,gquota" ]
   {% endif %}

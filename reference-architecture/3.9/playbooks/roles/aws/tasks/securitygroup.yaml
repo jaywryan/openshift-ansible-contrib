@@ -18,6 +18,6 @@
     vpc_id: "{{ vpc.vpc.id }}"
   register: sg
   with_items:
-    - name: "master"
+    - name: "captain"
     - name: "infra"
     - name: "node"
