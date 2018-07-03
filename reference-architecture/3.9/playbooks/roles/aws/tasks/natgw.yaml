@@ -7,7 +7,6 @@
     region: "{{ aws_region }}"
     tags:
       name: "nat-{{ clusterid }}"
-      Clusterid: "{{ clusterid }}"
     wait: yes
   register: natgw
   retries: 3
