@@ -2,7 +2,7 @@
 aws_cred_profile: "la-test"
 
 # password for ssh key - ~/.ssh/{{ clusterid }}.{{ dns_domain }}
-sshkey_password: 'O^4rXuG5^rQV73G'
+sshkey_password: ''
 
 clusterid: "la-test"
 dns_domain: "geixunsapoc02.com"
