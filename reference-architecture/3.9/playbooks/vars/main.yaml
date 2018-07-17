@@ -1,24 +1,24 @@
 ---
-aws_cred_profile: "la-int"
+aws_cred_profile: "la-test"
 
 # password for ssh key - ~/.ssh/{{ clusterid }}.{{ dns_domain }}
-sshkey_password: '%3WsNVb07@^n7u4'
+sshkey_password: 'O^4rXuG5^rQV73G'
 
-clusterid: "la-int"
+clusterid: "la-test"
 dns_domain: "geixunsapoc02.com"
-aws_region: "us-east-1"
+aws_region: "us-west-2"
 
-vpc_cidr: "10.228.183.0/24"
+vpc_cidr: "172.16.0.0/16"
 
 subnets_public_cidr:
-  - 10.228.183.0/28
-  - 10.228.183.16/28
-  - 10.228.183.32/28
+  - 172.16.0.0/24
+  - 172.16.1.0/24
+  - 172.16.2.0/24
 
 subnets_private_cidr:
-  - 10.228.183.128/28
-  - 10.228.183.144/28
-  - 10.228.183.176/28
+  - 172.16.16.0/20
+  - 172.16.32.0/20
+  - 172.16.48.0/20
 
 ec2_type_bastion: "t2.medium"
 ec2_type_captain: "m5.2xlarge"

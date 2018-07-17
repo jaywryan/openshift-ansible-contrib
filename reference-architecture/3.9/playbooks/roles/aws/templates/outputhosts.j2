@@ -1,5 +1,5 @@
 [masters]
-{%- for i in ec2master.results %}
+{%- for i in ec2captain.results %}
 {{ i.tagged_instances[0].private_dns_name }} openshift_node_labels="{'region': 'master'}"
 {%- endfor %}
 

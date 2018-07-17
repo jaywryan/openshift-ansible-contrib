@@ -6,7 +6,7 @@
       Name: "bastion-{{ clusterid }}.{{ dns_domain }}"
     exact_count: 1
     group: [
-      "Bastion"
+      "{{ clusterid }}-Bastion"
     ]
     instance_type: "{{ ec2_type_bastion }}"
     image: "{{ ec2ami }}"
@@ -63,8 +63,8 @@
       Name: "{{ item.name }}"
     exact_count: 1
     group: [
-      "captain",
-      "node"
+      "{{ clusterid }}-captain",
+      "{{ clusterid }}-node"
     ]
     instance_type: "{{ item.type }}"
     image: "{{ ec2ami }}"
@@ -142,8 +142,8 @@
       Name: "{{ item.name }}"
     exact_count: 1
     group: [
-      "infra",
-      "node"
+      "{{ clusterid }}-infra",
+      "{{ clusterid }}-node"
     ]
     instance_type: "{{ item.type }}"
     image: "{{ ec2ami }}"
@@ -211,7 +211,7 @@
       Name: "{{ item.name }}"
     exact_count: 1
     group: [
-      "node"
+      "{{ clusterid }}-node"
     ]
     instance_type: "{{ item.type }}"
     image: "{{ ec2ami }}"
